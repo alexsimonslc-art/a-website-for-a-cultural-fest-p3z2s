@@ -72,9 +72,9 @@ h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.05;margin
     radial-gradient(40% 40% at 60% 90%,color-mix(in srgb,var(--accent) 45%,transparent),transparent);
   animation:heroFloat 16s var(--ease) infinite alternate}
 @keyframes heroFloat{to{transform:translate3d(3%,-3%,0) scale(1.1)}}
-.hero-inner{position:relative;z-index:1;text-align:center;padding-top:80px;padding-bottom:80px;width:100%}
+.hero-inner{position:relative;z-index:1;text-align:center;padding-top:120px;padding-bottom:80px;width:100%}
 .hero-badge{display:inline-block;padding:7px 16px;border-radius:999px;background:var(--surface);border:1px solid var(--border);
-  backdrop-filter:blur(10px);font-size:.82rem;font-weight:600;color:var(--muted);margin-bottom:22px}
+  backdrop-filter:blur(10px);font-size:.82rem;font-weight:600;color:var(--muted);margin-bottom:22px;margin-top:20px}
 .hero-title{font-size:clamp(2.6rem,7vw,5.5rem);letter-spacing:-.02em;margin-bottom:20px;max-width:16ch;margin-inline:auto}
 .hero-sub{font-size:clamp(1.05rem,2vw,1.35rem);color:var(--muted);max-width:52ch;margin:0 auto 34px}
 
