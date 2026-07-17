@@ -4,6 +4,39 @@
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
 
+  // data-fluid-gradient auto animation at the back of the hero
+  document.querySelectorAll('[data-fluid-gradient]').forEach(function(el){
+    var c=document.createElement('canvas');c.style.cssText='position:absolute;inset:0;z-index:0;pointer-events:none;mix-blend-mode:screen;opacity:0.8';
+    if(getComputedStyle(el).position==='static')el.style.position='relative';
+    el.insertBefore(c,el.firstChild);
+    var ctx=c.getContext('2d'),DPR=Math.min(2,window.devicePixelRatio||1),t=0;
+    function size(){c.width=el.clientWidth*DPR;c.height=el.clientHeight*DPR;}
+    size();window.addEventListener('resize',size);
+    (function draw(){
+      t+=0.003;ctx.clearRect(0,0,c.width,c.height);
+      var w=c.width,h=c.height;
+      var g1x=w*(0.5+0.35*Math.sin(t*1.5));var g1y=h*(0.5+0.25*Math.cos(t*2.2));
+      var g2x=w*(0.5+0.4*Math.cos(t*1.8));var g2y=h*(0.5+0.3*Math.sin(t*1.1));
+      var g3x=w*(0.5+0.25*Math.sin(t*2.5));var g3y=h*(0.5+0.35*Math.cos(t*1.4));
+      var r1=Math.max(w,h)*0.55;var r2=Math.max(w,h)*0.6;var r3=Math.max(w,h)*0.45;
+      
+      ctx.globalCompositeOperation='screen';
+      var gr1=ctx.createRadialGradient(g1x,g1y,0,g1x,g1y,r1);
+      gr1.addColorStop(0,'rgba(255,106,61,0.5)');gr1.addColorStop(0.5,'rgba(192,38,211,0.18)');gr1.addColorStop(1,'rgba(0,0,0,0)');
+      ctx.fillStyle=gr1;ctx.beginPath();ctx.arc(g1x,g1y,r1,0,7);ctx.fill();
+      
+      var gr2=ctx.createRadialGradient(g2x,g2y,0,g2x,g2y,r2);
+      gr2.addColorStop(0,'rgba(192,38,211,0.45)');gr2.addColorStop(0.6,'rgba(255,106,61,0.12)');gr2.addColorStop(1,'rgba(0,0,0,0)');
+      ctx.fillStyle=gr2;ctx.beginPath();ctx.arc(g2x,g2y,r2,0,7);ctx.fill();
+      
+      var gr3=ctx.createRadialGradient(g3x,g3y,0,g3x,g3y,r3);
+      gr3.addColorStop(0,'rgba(255,190,90,0.3)');gr3.addColorStop(0.5,'rgba(18,6,17,0)');gr3.addColorStop(1,'rgba(0,0,0,0)');
+      ctx.fillStyle=gr3;ctx.beginPath();ctx.arc(g3x,g3y,r3,0,7);ctx.fill();
+      
+      requestAnimationFrame(draw);
+    })();
+  });
+
   // mobile nav
   document.querySelectorAll('[data-burger]').forEach(function(b){
     b.addEventListener('click',function(){var n=b.closest('[data-nav]');if(n)n.classList.toggle('open');});
