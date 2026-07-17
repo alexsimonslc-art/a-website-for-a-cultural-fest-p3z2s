@@ -1,9 +1,165 @@
 {
-  "name": "A website for a cultural fest",
-  "slug": "a-website-for-a-cultural-fest-p3z2s",
-  "template": "blank",
-  "pages": [
-    "index"
-  ],
-  "version": 1
+  "generator": "ui-library",
+  "version": 1,
+  "style": "glass",
+  "palette": "sunset-fest",
+  "fonts": "merienda+jakarta",
+  "spec": {
+    "style": "glass",
+    "palette": "sunset-fest",
+    "fonts": "merienda+jakarta",
+    "event": {
+      "name": "Sanskriti 2026"
+    },
+    "pages": [
+      {
+        "name": "index",
+        "title": "Home",
+        "sections": [
+          {
+            "type": "hero",
+            "classes": "fx-aurora data-clickspark",
+            "content": {
+              "badge": "OCTOBER 15-18, 2026 • THE GRAND AMPHITHEATER",
+              "headline": "A Kaleidoscope of Heritage, Rhythm & Art",
+              "sub": "Experience India's richest cultural tapestry through four days of breathtaking performances, masterclasses, and culinary journeys.",
+              "ctaText": "Secure Your Pass",
+              "ctaHref": "pages/register.html",
+              "image": "https://images.pexels.com/photos/15141493/pexels-photo-15141493.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"
+            }
+          },
+          {
+            "type": "countdown",
+            "classes": "fx-dotgrid",
+            "content": {
+              "title": "The Celebration Begins In",
+              "date": "2026-10-15T10:00:00"
+            }
+          },
+          {
+            "type": "about",
+            "classes": "bento",
+            "content": {
+              "title": "About Sanskriti 2026",
+              "text": "Sanskriti is our annual flagship cultural festival, celebrating the eternal spirit of classical and contemporary folk arts. From mesmerizing Kathak recitals and soul-stirring Sufi nights to interactive pottery workshops and regional culinary pavilions, Sanskriti is where tradition meets modern passion."
+            }
+          },
+          {
+            "type": "speakers",
+            "content": {
+              "title": "Featured Artists & Icons",
+              "items": [
+                {
+                  "name": "Pandit Birju Maharaj Academy",
+                  "role": "Classical Kathak Showcase",
+                  "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Pandit_Birju_Maharaj.jpg/960px-Pandit_Birju_Maharaj.jpg"
+                },
+                {
+                  "name": "Wadali Brothers Tribute",
+                  "role": "Sufi & Folk Headliners",
+                  "photo": "https://assets.mysticamusic.com/images/artist-photos/wadali-brothers.jpg"
+                },
+                {
+                  "name": "Anoushka Shankar Ensemble",
+                  "role": "Sitar & Fusion Night",
+                  "photo": "https://www.anoushkashankar.com/media/pages/biography/3982313089-1774993362/alaura-lewis_2-51-pm_anoushka_shankar_0067_16-_lr_ps.jpg"
+                },
+                {
+                  "name": "Chef Ranveer Brar",
+                  "role": "Culinary Heritage Host",
+                  "photo": "https://www.smartfood.org/wp-content/uploads/2019/09/Chef-ranveer-resized-891x1024.jpg"
+                }
+              ]
+            }
+          },
+          {
+            "type": "schedule",
+            "content": {
+              "title": "Festival Schedule",
+              "days": [
+                {
+                  "date": "Oct 15",
+                  "events": [
+                    {
+                      "time": "10:00 AM",
+                      "title": "Inaugural Ceremony & Lamp Lighting",
+                      "speaker": "Festival Committee"
+                    },
+                    {
+                      "time": "06:00 PM",
+                      "title": "Symphony of the East: Sitar Fusion",
+                      "speaker": "Anoushka Shankar Ensemble"
+                    }
+                  ]
+                },
+                {
+                  "date": "Oct 16",
+                  "events": [
+                    {
+                      "time": "02:00 PM",
+                      "title": "The Art of Clay: Pottery Workshop",
+                      "speaker": "Master Artisans"
+                    },
+                    {
+                      "time": "07:00 PM",
+                      "title": "Echoes of Mysticism: Sufi Night",
+                      "speaker": "Wadali Brothers Tribute"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "type": "gallery",
+            "content": {
+              "title": "Glimpses of Heritage",
+              "images": [
+                "https://images.pexels.com/photos/18999482/pexels-photo-18999482.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
+                "https://images.pexels.com/photos/18999145/pexels-photo-18999145.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
+                "https://images.pexels.com/photos/7693107/pexels-photo-7693107.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
+                "https://images.pexels.com/photos/18999455/pexels-photo-18999455.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
+                "https://images.pexels.com/photos/15141483/pexels-photo-15141483.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
+                "https://images.pexels.com/photos/15189553/pexels-photo-15189553.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"
+              ]
+            }
+          },
+          {
+            "type": "cta",
+            "classes": "fx-noise",
+            "content": {
+              "title": "Do Not Miss the Magic",
+              "sub": "Early bird passes are available until September 1st. Grab your tickets now to witness the grand spectacle of cultural diversity.",
+              "ctaText": "Get Tickets Now",
+              "ctaHref": "pages/register.html"
+            }
+          }
+        ]
+      },
+      {
+        "name": "register",
+        "title": "Register",
+        "sections": [
+          {
+            "type": "hero",
+            "content": {
+              "badge": "SECURE YOUR ENTRY",
+              "headline": "Join the Celebration",
+              "sub": "Fill out the registration details below to reserve your entry pass and workshop slots.",
+              "ctaText": "Go Back Home",
+              "ctaHref": "index.html",
+              "image": "https://images.pexels.com/photos/18999289/pexels-photo-18999289.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"
+            }
+          },
+          {
+            "type": "form",
+            "classes": "fx-dotgrid",
+            "content": {
+              "title": "Sanskriti Festival Registration"
+            }
+          }
+        ]
+      }
+    ]
+  }
 }
