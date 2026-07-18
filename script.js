@@ -37,6 +37,52 @@
     })();
   });
 
+  // data-lightfall canvas animation
+  document.querySelectorAll('[data-lightfall]').forEach(function(el){
+    var c=document.createElement('canvas');c.style.cssText='position:absolute;inset:0;z-index:1;pointer-events:none;mix-blend-mode:screen;opacity:0.6';
+    if(getComputedStyle(el).position==='static')el.style.position='relative';
+    el.insertBefore(c,el.firstChild);
+    var ctx=c.getContext('2d'),drops=[],DPR=Math.min(2,window.devicePixelRatio||1);
+    function size(){c.width=el.clientWidth*DPR;c.height=el.clientHeight*DPR;}
+    size();window.addEventListener('resize',size);
+    var col1=(getComputedStyle(el).getPropertyValue('--accent')||'#ff6a3d').trim();
+    var col2=(getComputedStyle(el).getPropertyValue('--accent2')||'#c026d3').trim();
+    function make(){
+      return {
+        x: Math.random()*c.width,
+        y: Math.random()*c.height - c.height,
+        len: (Math.random()*90 + 40)*DPR,
+        speed: (Math.random()*1.8 + 0.6)*DPR,
+        width: (Math.random()*1.5 + 0.5)*DPR,
+        alpha: Math.random()*0.3 + 0.2
+      };
+    }
+    for(var i=0;i<45;i++) drops.push(make());
+    (function draw(){
+      ctx.clearRect(0,0,c.width,c.height);
+      drops.forEach(function(d){
+        d.y += d.speed;
+        if(d.y > c.height) {
+          d.y = -d.len;
+          d.x = Math.random()*c.width;
+        }
+        var g = ctx.createLinearGradient(d.x, d.y, d.x, d.y + d.len);
+        g.addColorStop(0, 'rgba(0,0,0,0)');
+        g.addColorStop(0.5, d.speed > 1.2*DPR ? col1 : col2);
+        g.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.strokeStyle = g;
+        ctx.lineWidth = d.width;
+        ctx.lineCap = 'round';
+        ctx.globalAlpha = d.alpha;
+        ctx.beginPath();
+        ctx.moveTo(d.x, d.y);
+        ctx.lineTo(d.x, d.y + d.len);
+        ctx.stroke();
+      });
+      requestAnimationFrame(draw);
+    })();
+  });
+
   // mobile nav
   document.querySelectorAll('[data-burger]').forEach(function(b){
     b.addEventListener('click',function(){var n=b.closest('[data-nav]');if(n)n.classList.toggle('open');});
